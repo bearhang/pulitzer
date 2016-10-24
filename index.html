@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		<meta charset="utf-8">
+        <title>百年普利策</title>
+		<script src="js/echarts.min.js"></script>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/pulitzer.js"></script>
+        <script src="js/detail_list.js"></script>
+		<link href="css/detail_list.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body style="height: 100%; margin: 0; text-align: center">
+		<div id="main_title">
+            <img src="jpg/title.jpg" />
+        </div>
+        <div id="tool_bar" style="text-align: center">
+            <img id="button1" onclick="click_button1()" style='cursor: pointer' src="jpg/button1_down.jpg" />
+            <img id="button2" onclick="click_button2()" style='cursor: pointer' src="jpg/button2_up.jpg" />
+            <img id="button3" onclick="click_button3()" style='cursor: pointer' src="jpg/button3_up.jpg" />
+        </div>
+		
+		<div id="main_part1" style="margin: 0 auto; height: 100%; width: 75%">
+			<div id="page_left" style="float: left; height: 100%; width: 66%">
+				<div id="container" style="height: 100%"></div>
+			</div>
+            <div id="page_right_default" style="float: right; height: 100%; width: 34%; padding-top: 10%; text-align: left">
+                <a style="font-family: 宋体; font-size: 22px">从1917年哥伦比亚大学颁发第一届普利策新闻奖至今，已过百年。如今，它已经成为美国新闻业的北极星，将优秀的新闻传统与信念传递给一代代的新闻工作者。</a>
+            </div>
+			<div id="page_right" style="float: right; height: 100%; width: 34%; padding-top: 10%; text-align: left; display: none">
+				<div id="nbPersonInfoYear" class="nbPersonInfoYear" style='cursor: pointer' onclick="onClickDetailYear()"></div>
+				<div id="nbPersonInfo" style="display: block;">
+					<div id="nbPersonInfoRollUp" class="nbPersonInfoRollUp" onclick="personListUp()" style="background-image: url(&quot;http://file.caixin.com/datanews/nobel_v3/images/personInfoRollUp.gif&quot;);"></div>
+					<div id="nbPersonInfoList" class="nbPersonInfoList">
+
+					</div>
+					<div id="nbPersonInfoRollDown" class="nbPersonInfoRollDown" onclick="personListDown()" style="background-image: url(&quot;http://file.caixin.com/datanews/nobel_v3/images/personInfoRollDown.gif&quot;);"></div>
+				</div> 
+			</div>
+		</div>
+		
+        <div id="main_part2" style="text-align:center; display: none">
+            <img src="jpg/part2.png" />
+        </div>
+        <div id="main_part3" style="text-align:center; display: none">
+            <img src="jpg/part3.png" />
+        </div>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script>
+		<script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+var data = new Array();
+for (var i = 0; i < 100; i++) {
+    if ((i + 1) % 10 == 0 || i == 0) {
+        data[i] = {value:1, name:i+1917, label: {normal: {show: true}}, labelLine: {normal: {show: true}}};
+    } else {
+        data[i] = {value:1, name:i+1917};
+    }
+}
+
+var category = [
+    {value:1, name:'Drama'},
+    {value:1, name:'Music'},
+	{value:1, name:'Poetry'},
+	{value:1, name:'Fiction'},
+	{value:1, name:'History'},
+	{value:1, name:'Photography'},
+	{value:1, name:'Public Service'},
+	{value:1, name:'Editorial Writing'},
+	{value:1, name:'National Reporting'},
+	{value:1, name:'General Nonfiction'},
+	{value:1, name:'Editorial Cartooning'},
+	{value:1, name:'nternational Reporting'},
+	{value:1, name:'Biography or Autobiography'},
+	{value:1, name:'Local General or Spot News Reporting'},
+	{value:1, name:'Local Investigative Specialized Reporting'},
+];
+
+option = {
+    //tooltip: {
+    //    trigger: 'item',
+    //    formatter: "{a} <br/>{b}: {c} ({d}%)"
+    //},
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        y: 'bottom',
+        data: category,
+    },
+    series: [  
+        {   
+            name: 'category',
+            type: 'pie',
+            radius: ['20%', '40%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,        
+                },
+                emphasis: {
+                    show: true,
+
+                },
+            },
+            data: category,
+        },
+        {
+            name:'百年普利特',
+            type:'pie',
+            radius: ['55%', '75%'],
+            avoidLabelOverlap: false,
+	        label: {
+                normal: {
+                    show: false,
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '20',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#9fc5e8',
+                    borderColor: '#ffffff',
+                    borderWidth: 5,
+                }
+            },
+            data:data
+        },
+    ]
+};
+
+myChart.setOption(option);
+myChart.on('click', function (params) {
+    if (params.componentType === 'series' && params.seriesType === 'pie' && params.seriesIndex === 1) {
+        load_info(params);
+    }
+});
+       	</script>
+	</body>
+</html>

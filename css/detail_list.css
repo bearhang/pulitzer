@@ -1,0 +1,82 @@
+.nbPersonInfoYear {
+    font-family: Arial;
+    font-size: 36px;
+    color: #555555;
+    top: 0px;
+    left: 0px;
+    width: 222px;
+    height: 36px;
+    float: auto;
+}
+
+.nbPersonInfo {
+    position: absolute;
+    z-index: 30;
+    top: 80px;
+    left: 700px;
+    width: 222px;
+    height: 500px;
+    float: auto;
+    background-color: #FFFFFF;
+}
+
+.nbPersonInfoRollUp {
+    width: 271px;
+    height: 15px;
+    float: auto;
+    top: 36px;
+    left: 24px;
+    cursor: pointer;
+    background-image: url('http://file.caixin.com/datanews/nobel_v3/images/personInfoRollUp.gif');
+}
+
+.nbPersonInfoRollDown {
+    width: 271px;
+    height: 15px;
+    float: auto;
+    top: 481px;
+    left: 24px;
+    cursor: pointer;
+    background-image: url('http://file.caixin.com/datanews/nobel_v3/images/personInfoRollDown.gif');
+}
+
+.nbPersonInfoList{
+	width:271px;
+	height:430px;
+	float:auto;
+	overflow:hidden;
+	top:51px;
+	left:0px;
+	/*background-color:#eeeeee;*/ 
+}
+
+.nbPersonInfoFrameDiv{
+	margin-top:5px;
+	width:257px;
+	height:66px;
+	border:1px solid #E2E4E3;
+	padding:6px 4px 6px 6px;
+	float:left;
+}
+
+.nbPersonPhoto_s{
+	width:52px;
+	height:66px;
+	background-color:#FFFFFF;
+	float:left;
+}
+
+.nbPersonRightBanner{
+	width:5px;
+	height:66px;
+	background-color:#FFFFFF;
+	float:left;
+}
+
+.nbPersonInfoText{
+	width:300px;
+	height:70px;
+	float:left;
+    font-size: 12px;
+    font-family: "宋体";
+}
